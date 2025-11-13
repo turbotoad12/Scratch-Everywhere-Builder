@@ -29,25 +29,16 @@ namespace Scratch_Everywhere_Builder.Sebx
         public string ProjectDescription { get; set; } = string.Empty;
 
         [XmlElement("IconFile")]
-        public FileReference IconFile { get; set; } = new FileReference();
+        public FileInfo IconFile { get; set; } = new FileInfo(string.Empty);
 
         [XmlElement("BannerFile")]
-        public FileReference BannerFile { get; set; } = new FileReference();
+        public FileInfo BannerFile { get; set; } = new FileInfo(string.Empty);
 
         [XmlElement("Sb3Folder")]
-        public FolderReference Sb3Folder { get; set; } = new FolderReference();
+        public DirectoryInfo Sb3Folder { get; set; } = new DirectoryInfo(string.Empty);
 
         [XmlElement("TargetVersion")]
         internal Version.VersionInfo TargetVersion { get; set; } = new Version.VersionInfo();
-    }
-
-    public class FileReference
-    {
-        [XmlElement("Name")]
-        public string Name { get; set; } = string.Empty;
-
-        [XmlElement("Path")]
-        public string Path { get; set; } = string.Empty;
     }
 
     public class FolderReference

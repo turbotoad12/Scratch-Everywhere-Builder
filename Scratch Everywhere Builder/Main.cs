@@ -101,5 +101,10 @@ namespace Scratch_Everywhere_Builder
                 childForm.Close();
             }
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

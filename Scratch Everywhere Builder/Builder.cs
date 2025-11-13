@@ -17,7 +17,7 @@ namespace Scratch_Everywhere_Builder
             // Copy base files
             Utils.CopyDirectoryRecursive(Path.Combine(VersionsDirectory.FullName, $"{project.Tar.Version}"), Utils.TempDirectory.FullName, true);
             // Copy assets
-            CopyAssets(FinalIconPath, iconpath, FinalBannerPath, bannerpath);
+            CopyAssets(FinalIconPath, project.IconFile, FinalBannerPath, project.BannerFile);
             // Copy sb3
             File.Copy(sb3path.FullName, Path.Combine(FinalSb3Path.FullName, "project.sb3"), true);
             // find dockerfile

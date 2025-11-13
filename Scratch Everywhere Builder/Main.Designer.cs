@@ -45,8 +45,8 @@
             toolsMenu = new ToolStripMenuItem();
             optionsToolStripMenuItem = new ToolStripMenuItem();
             helpMenu = new ToolStripMenuItem();
-            toolStripSeparator8 = new ToolStripSeparator();
             aboutToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator8 = new ToolStripSeparator();
             toolStrip = new ToolStrip();
             newToolStripButton = new ToolStripButton();
             openToolStripButton = new ToolStripButton();
@@ -146,7 +146,7 @@
             toolBarToolStripMenuItem.CheckOnClick = true;
             toolBarToolStripMenuItem.CheckState = CheckState.Checked;
             toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-            toolBarToolStripMenuItem.Size = new Size(224, 26);
+            toolBarToolStripMenuItem.Size = new Size(158, 26);
             toolBarToolStripMenuItem.Text = "&Toolbar";
             toolBarToolStripMenuItem.Click += ToolBarToolStripMenuItem_Click;
             // 
@@ -156,7 +156,7 @@
             statusBarToolStripMenuItem.CheckOnClick = true;
             statusBarToolStripMenuItem.CheckState = CheckState.Checked;
             statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            statusBarToolStripMenuItem.Size = new Size(224, 26);
+            statusBarToolStripMenuItem.Size = new Size(158, 26);
             statusBarToolStripMenuItem.Text = "&Status Bar";
             statusBarToolStripMenuItem.Click += StatusBarToolStripMenuItem_Click;
             // 
@@ -170,7 +170,7 @@
             // optionsToolStripMenuItem
             // 
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(224, 26);
+            optionsToolStripMenuItem.Size = new Size(144, 26);
             optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpMenu
@@ -180,16 +180,16 @@
             helpMenu.Size = new Size(55, 24);
             helpMenu.Text = "&Help";
             // 
-            // toolStripSeparator8
-            // 
-            toolStripSeparator8.Name = "toolStripSeparator8";
-            toolStripSeparator8.Size = new Size(156, 6);
-            // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             aboutToolStripMenuItem.Size = new Size(159, 26);
             aboutToolStripMenuItem.Text = "&About ... ...";
+            // 
+            // toolStripSeparator8
+            // 
+            toolStripSeparator8.Name = "toolStripSeparator8";
+            toolStripSeparator8.Size = new Size(156, 6);
             // 
             // toolStrip
             // 
@@ -269,11 +269,13 @@
             Controls.Add(statusStrip);
             Controls.Add(toolStrip);
             Controls.Add(menuStrip);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             MainMenuStrip = menuStrip;
             Margin = new Padding(4, 5, 4, 5);
             Name = "Main";
             Text = "Scratch Everywhere Builder";
+            Load += Main_Load;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             toolStrip.ResumeLayout(false);
