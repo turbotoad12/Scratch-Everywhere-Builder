@@ -15,11 +15,11 @@ namespace Scratch_Everywhere_Builder
             FinalBannerPath.Create();
             FinalSb3Path.Create();
             // Copy base files
-            Utils.CopyDirectoryRecursive(Path.Combine(VersionsDirectory.FullName, $"{project.Tar.Version}"), Utils.TempDirectory.FullName, true);
+            Utils.CopyDirectoryRecursive(Path.Combine(VersionsDirectory.FullName, $"{project.TargetVersion.Version}"), Utils.TempDirectory.FullName, true);
             // Copy assets
             CopyAssets(FinalIconPath, project.IconFile, FinalBannerPath, project.BannerFile);
-            // Copy sb3
-            File.Copy(sb3path.FullName, Path.Combine(FinalSb3Path.FullName, "project.sb3"), true);
+            // Copy sb3 folder
+            Utils.CopyDirectoryRecursive(project.Sb3Folder.FullName, FinalSb3Path.FullName, true);
             // find dockerfile
             FileInfo Dockerfile = new(Path.Combine(Utils.TempDirectory.FullName, "docker", "Dockerfile.3ds"));
             if (!Dockerfile.Exists)
@@ -40,7 +40,7 @@ namespace Scratch_Everywhere_Builder
         internal string GenerateBuildCommand(FileInfo dockerfile)
         {
             // Quote all paths to handle spaces and special folders
-            return $"docker build -f \"{dockerfile.FullName}\" --target exporter -o \"{outputdirectory.FullName}\" \"{Utils.TempDirectory.FullName}\"";
+            return $"docker build -f \"{dockerfile.FullName}\" --target exporter -o \"{project.OutputFolder.FullName}\" \"{Utils.TempDirectory.FullName}\"";
         }
         internal bool Build()
         {

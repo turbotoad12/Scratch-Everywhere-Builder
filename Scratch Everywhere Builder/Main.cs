@@ -11,19 +11,27 @@ namespace Scratch_Everywhere_Builder
     public partial class Main : Form
     {
         private int childFormNumber = 0;
-
-        public Main()
+        public bool FileLoaded = false;
+        public string CurrentSebxPath = "";
+        public Main(string SebxPath)
         {
             InitializeComponent();
+
+            // Accept if the path points to an existing file, or the special token "none" (case-insensitive).
+            if (File.Exists(SebxPath) || string.Equals(SebxPath, "none", StringComparison.OrdinalIgnoreCase))
+            {
+                CurrentSebxPath = SebxPath;
+                FileLoaded = true;
+            }
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
-        }
+        //private void ShowNewForm(object sender, EventArgs e)
+        //{
+        //    Form childForm = new Form();
+        //    childForm.MdiParent = this;
+        //    childForm.Text = "Window " + childFormNumber++;
+        //    childForm.Show();
+        //}
 
         private void OpenFile(object sender, EventArgs e)
         {
@@ -52,16 +60,17 @@ namespace Scratch_Everywhere_Builder
             this.Close();
         }
 
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CheckFileLoaded(object sender, EventArgs e)
         {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            if (!FileLoaded)
+            {
+                MessageBox.Show("No file loaded. Please load a .sebx file to proceed.", "File Not Loaded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MainPanel.Visible = false;
+                MainPanel.Enabled = false;
+            } else {
+                MainPanel.Visible = true;
+                MainPanel.Enabled = true;
+            }
         }
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,37 +83,9 @@ namespace Scratch_Everywhere_Builder
             statusStrip.Visible = statusBarToolStripMenuItem.Checked;
         }
 
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
-        }
-
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Form childForm in MdiChildren)
-            {
-                childForm.Close();
-            }
-        }
-
         private void Main_Load(object sender, EventArgs e)
         {
-
+            CheckFileLoaded(sender, e);
         }
     }
 }

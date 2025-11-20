@@ -1,3 +1,6 @@
 <Solution>
   <Project Path="Scratch Everywhere Builder/Scratch Everywhere Builder.csproj" />
+  <Project Path="Setup/Setup.vdproj" Type="Installer">
+    <Build />
+  </Project>
 </Solution>

@@ -6,12 +6,20 @@ namespace Scratch_Everywhere_Builder
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        // also with args
+        static void Main(string[] args)
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            
             ApplicationConfiguration.Initialize();
-            Application.Run(new Main());
+            if (args.Length > 0)
+            {
+                Application.Run(new Main(args[0]));
+            }
+            
+            else
+                Application.Run(new Main("none"));
         }
     }
 }
