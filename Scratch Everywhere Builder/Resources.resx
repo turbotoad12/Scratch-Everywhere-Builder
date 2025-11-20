@@ -126,4 +126,12 @@
     <value>Resources\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>No background</comment>
   </data>
+  <data name="Package-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Package-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Package or build Icon</comment>
+  </data>
+  <data name="Options-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Options-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Options Icon</comment>
+  </data>
 </root>

@@ -2,7 +2,7 @@
 using static Scratch_Everywhere_Builder.Version;
 namespace Scratch_Everywhere_Builder
 {
-    internal class Builder(Sebx.SebxProject project)
+    internal class Builder(Sebx.SebxProject project, DirectoryInfo projectPath)
     {
         internal FileInfo? dockerfile;
         internal void PrepareFS()
@@ -40,7 +40,7 @@ namespace Scratch_Everywhere_Builder
         internal string GenerateBuildCommand(FileInfo dockerfile)
         {
             // Quote all paths to handle spaces and special folders
-            return $"docker build -f \"{dockerfile.FullName}\" --target exporter -o \"{project.OutputFolder.FullName}\" \"{Utils.TempDirectory.FullName}\"";
+            return $"docker build -f \"{dockerfile.FullName}\" --target exporter -o \"{Path.Combine(projectPath.FullName + "build")}\" \"{Utils.TempDirectory.FullName}\"";
         }
         internal bool Build()
         {
