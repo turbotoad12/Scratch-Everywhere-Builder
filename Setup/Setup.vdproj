@@ -329,7 +329,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SE! Builder"
         "ProductCode" = "8:{FA319550-ED18-4D36-9383-DE8CC1ACDE8B}"
-        "PackageCode" = "8:{1680E9A9-A0C8-4109-B8C8-266AE38AF12F}"
+        "PackageCode" = "8:{204B6D87-C181-443C-AA5A-BBCFE7F8D632}"
         "UpgradeCode" = "8:{5ACF695C-48E2-465D-A045-080BF6295106}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -848,7 +848,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C48E613F5F6B4600823B9A1B76E22483"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_74B68CA2E8274F63A076E3119AFEB545"
             {
             "SourcePath" = "8:"
             "TargetName" = "8:"
@@ -870,7 +870,7 @@
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:ContentFiles"
-            "OutputProjectGuid" = "8:{1CBEB95D-82E3-433B-A5D1-39BE190804CE}"
+            "OutputProjectGuid" = "8:{B97AB388-457B-5EF7-7335-7157CE2CF427}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
