@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewProject));
-            textBox1 = new TextBox();
+            ProjectPathBox = new TextBox();
             browseButton = new Button();
             label1 = new Label();
             cancelbutton = new Button();
@@ -40,12 +40,12 @@
             richTextBox1 = new RichTextBox();
             SuspendLayout();
             // 
-            // textBox1
+            // ProjectPathBox
             // 
-            textBox1.Location = new Point(12, 70);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(350, 27);
-            textBox1.TabIndex = 0;
+            ProjectPathBox.Location = new Point(12, 70);
+            ProjectPathBox.Name = "ProjectPathBox";
+            ProjectPathBox.Size = new Size(350, 27);
+            ProjectPathBox.TabIndex = 0;
             // 
             // browseButton
             // 
@@ -75,6 +75,7 @@
             cancelbutton.TabIndex = 3;
             cancelbutton.Text = "Cancel";
             cancelbutton.UseVisualStyleBackColor = true;
+            cancelbutton.Click += cancelbutton_Click;
             // 
             // createButton
             // 
@@ -84,6 +85,7 @@
             createButton.TabIndex = 4;
             createButton.Text = "Create";
             createButton.UseVisualStyleBackColor = true;
+            createButton.Click += createButton_Click;
             // 
             // label2
             // 
@@ -132,7 +134,7 @@
             Controls.Add(cancelbutton);
             Controls.Add(label1);
             Controls.Add(browseButton);
-            Controls.Add(textBox1);
+            Controls.Add(ProjectPathBox);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
@@ -145,7 +147,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox ProjectPathBox;
         private Button browseButton;
         private Label label1;
         private Button cancelbutton;

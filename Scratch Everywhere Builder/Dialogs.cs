@@ -8,7 +8,7 @@
             SB3
         }
         OpenFileDialog dialog = new OpenFileDialog();
-        FileInfo fileinfo = new FileInfo(string.Empty);
+        FileInfo fileinfo = new FileInfo(".");
         internal FileInfo ShowDialog(Filters filter)
         {
             if (filter == Filters.PNG)
@@ -36,7 +36,7 @@
     internal class FolderDialog
     {
         FolderBrowserDialog dialog = new FolderBrowserDialog();
-        DirectoryInfo directoryinfo = new DirectoryInfo(string.Empty);
+        DirectoryInfo directoryinfo = new DirectoryInfo(".");
         internal DirectoryInfo ShowDialog()
         {
             if (dialog.ShowDialog() == DialogResult.OK)

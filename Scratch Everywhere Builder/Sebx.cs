@@ -13,26 +13,19 @@ namespace Scratch_Everywhere_Builder.Sebx
         [XmlElement("ProjectDescription")]
         public string ProjectDescription { get; set; } = string.Empty;
 
-        [XmlElement("IconFile")]
-        public FileInfo IconFile { get; set; } = new FileInfo(string.Empty);
+        [XmlElement("IconFile", IsNullable = true)]
+        public FileInfo? IconFile { get; set; } = null;
 
-        [XmlElement("BannerFile")]
-        public FileInfo BannerFile { get; set; } = new FileInfo(string.Empty);
+        [XmlElement("BannerFile", IsNullable = true)]
+        public FileInfo? BannerFile { get; set; } = null;
 
-        [XmlElement("Sb3Folder")]
-        public DirectoryInfo Sb3Folder { get; set; } = new DirectoryInfo(string.Empty);
-        [XmlElement("OutputFolder")]
+        [XmlElement("Sb3Folder", IsNullable = true)]
+        public DirectoryInfo? Sb3Folder { get; set; } = null;
+
+        [XmlElement("TargetVersion")]
         internal Version.VersionInfo TargetVersion { get; set; } = new Version.VersionInfo();
     }
 
-    public class FolderReference
-    {
-        [XmlElement("Name")]
-        public string Name { get; set; } = string.Empty;
-
-        [XmlElement("Path")]
-        public string Path { get; set; } = string.Empty;
-    }
     public static class SebxProjectIO
     {
         /// <summary>

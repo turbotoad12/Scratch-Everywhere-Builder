@@ -52,7 +52,10 @@ namespace Scratch_Everywhere_Builder
             Directory.CreateDirectory(
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                              "ScratchEverywhereBuilder", "temp"));
-        internal static string programDir => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
+        internal static string ProgramDir => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
+        internal static string DefaultBanner => Path.Combine(ProgramDir, "Resources/SE! Builder banner.png");
+        internal static string DefaultIcon => Path.Combine(ProgramDir, "Resources/SE! Builder icon.png");
+        internal static string DefaultProject => Path.Combine(ProgramDir, "Resources/project.sb3");
         internal static bool IsDockerRunning()
         {
             try

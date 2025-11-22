@@ -118,6 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Document-Create-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Document-Create-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Package-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Package-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Package or build Icon</comment>
+  </data>
+  <data name="Folder-Open-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Folder-Open-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Options-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Options-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Options Icon</comment>
+  </data>
   <data name="Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\icon.ico;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     <comment>Icon no background</comment>
@@ -126,12 +140,13 @@
     <value>Resources\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>No background</comment>
   </data>
-  <data name="Package-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Package-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Package or build Icon</comment>
+  <data name="Save-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Save-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Options-16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Options-16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Options Icon</comment>
+  <data name="SE! Builder banner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\SE! Builder banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SE! Builder icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\SE! Builder icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

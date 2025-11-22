@@ -1,11 +1,4 @@
 ﻿using Scratch_Everywhere_Builder.Sebx;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Scratch_Everywhere_Builder
 {
@@ -15,6 +8,7 @@ namespace Scratch_Everywhere_Builder
         public bool FileLoaded = false;
         public bool Saved = true;
         public SebxProject sebxproject;
+        public string sebxpath;
         public Main(string SebxPath)
         {
             InitializeComponent();
@@ -50,8 +44,10 @@ namespace Scratch_Everywhere_Builder
             {
                 string FileName = openFileDialog.FileName;
                 sebxproject = SebxProjectIO.Load(FileName);
+                sebxpath = FileName;
                 FileLoaded = true;
                 CheckFileLoaded(sender, e);
+                UpdatePreviewImage();
             }
         }
 
@@ -59,7 +55,7 @@ namespace Scratch_Everywhere_Builder
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Scratch Everywhere Builder Projects (*.sebx)|*.sebx|All Files (*.*)|*.*";
+            saveFileDialog.Filter = "SE! Builder Projects (*.sebx)|*.sebx|All Files (*.*)|*.*";
             if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string FileName = saveFileDialog.FileName;
@@ -87,6 +83,19 @@ namespace Scratch_Everywhere_Builder
                 MainPanel.Enabled = true;
             }
         }
+        private void UpdatePreviewImage()
+        {
+            // check if icon and banner files exist
+            if (!File.Exists(sebxproject.BannerFile.FullName))
+            {
+                bannerPictureBox.Image = Resources.SE__Builder_banner;
+            }
+            else if (!File.Exists(sebxproject.IconFile.FullName))
+            {
+                // access image from resources
+                bannerPictureBox.Image = Resources.SE__Builder_icon;
+            }
+        }
 
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,8 +111,9 @@ namespace Scratch_Everywhere_Builder
         private void Main_Load(object sender, EventArgs e)
         {
             CheckFileLoaded(sender, e);
+            UpdatePreviewImage();
         }
-        
+
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
@@ -141,5 +151,41 @@ namespace Scratch_Everywhere_Builder
             }
         }
 
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newToolStripButton_Click(object sender, EventArgs e)
+        {
+            Form createwizard = new NewProject.NewProject();
+            createwizard.ShowDialog();
+            if (((NewProject.NewProject)createwizard).ProjectCreated)
+            {
+                sebxproject = ((NewProject.NewProject)createwizard).sebxproject;
+                FileLoaded = true;
+                CheckFileLoaded(sender, e);
+                Saved = false;
+                UpdatePreviewImage();
+            }
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            SebxProjectIO.Save(sebxproject, sebxpath);
+            Saved = true;
+        }
+
+        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

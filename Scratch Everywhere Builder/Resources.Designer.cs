@@ -61,6 +61,26 @@ namespace Scratch_Everywhere_Builder {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Document_Create_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Document-Create-16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Folder_Open_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Folder-Open-16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Icon {
@@ -96,6 +116,36 @@ namespace Scratch_Everywhere_Builder {
         internal static System.Drawing.Bitmap Package_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Package-16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Save_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Save-16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SE__Builder_banner {
+            get {
+                object obj = ResourceManager.GetObject("SE! Builder banner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SE__Builder_icon {
+            get {
+                object obj = ResourceManager.GetObject("SE! Builder icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
