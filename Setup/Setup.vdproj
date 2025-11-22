@@ -257,7 +257,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_40DAE87B562942DD95D693E30E754322"
             {
-            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -289,6 +289,29 @@
                 {
                 }
             }
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_D2C9F37FADB84E63B61122B86B20A704"
+            {
+            "DefaultLocation" = "8:[LocalAppDataFolder]SE! Builder\\"
+            "Name" = "8:User's Local Apps Folder"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:IDKWHATTOPUTHERE"
+                "Folders"
+                {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_57031BF8D6644CCE947042C2D79535AD"
+                    {
+                    "Name" = "8:versions"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_36754B7A624E416DA2FB0A88B620605F"
+                        "Folders"
+                        {
+                        }
+                    }
+                }
+            }
         }
         "LaunchCondition"
         {
@@ -306,7 +329,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SE! Builder"
         "ProductCode" = "8:{FA319550-ED18-4D36-9383-DE8CC1ACDE8B}"
-        "PackageCode" = "8:{82807476-204A-4923-90A8-54E918E72E75}"
+        "PackageCode" = "8:{1680E9A9-A0C8-4109-B8C8-266AE38AF12F}"
         "UpgradeCode" = "8:{5ACF695C-48E2-465D-A045-080BF6295106}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -825,6 +848,34 @@
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C48E613F5F6B4600823B9A1B76E22483"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_57031BF8D6644CCE947042C2D79535AD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:ContentFiles"
+            "OutputProjectGuid" = "8:{1CBEB95D-82E3-433B-A5D1-39BE190804CE}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D22720B539BD49B2860042B84AF5A7D9"
             {
             "SourcePath" = "8:..\\Scratch Everywhere Builder\\obj\\Release\\net10.0-windows\\apphost.exe"

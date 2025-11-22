@@ -57,6 +57,7 @@
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
             MainPanel = new Panel();
+            versionsGroupBox = new GroupBox();
             groupBox2 = new GroupBox();
             ChooseBannerButton = new Button();
             label3 = new Label();
@@ -69,10 +70,12 @@
             maskedTextBox1 = new MaskedTextBox();
             label2 = new Label();
             label1 = new Label();
+            versionListBox = new ListBox();
             menuStrip.SuspendLayout();
             toolStrip.SuspendLayout();
             statusStrip.SuspendLayout();
             MainPanel.SuspendLayout();
+            versionsGroupBox.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bannerPictureBox).BeginInit();
@@ -283,6 +286,7 @@
             // MainPanel
             // 
             MainPanel.BackColor = SystemColors.Control;
+            MainPanel.Controls.Add(versionsGroupBox);
             MainPanel.Controls.Add(groupBox2);
             MainPanel.Controls.Add(groupBox1);
             MainPanel.Dock = DockStyle.Fill;
@@ -291,6 +295,16 @@
             MainPanel.Size = new Size(843, 614);
             MainPanel.TabIndex = 4;
             MainPanel.Visible = false;
+            // 
+            // versionsGroupBox
+            // 
+            versionsGroupBox.Controls.Add(versionListBox);
+            versionsGroupBox.Location = new Point(385, 313);
+            versionsGroupBox.Name = "versionsGroupBox";
+            versionsGroupBox.Size = new Size(446, 288);
+            versionsGroupBox.TabIndex = 6;
+            versionsGroupBox.TabStop = false;
+            versionsGroupBox.Text = "Versions";
             // 
             // groupBox2
             // 
@@ -410,6 +424,14 @@
             label1.TabIndex = 0;
             label1.Text = "Project Name";
             // 
+            // versionListBox
+            // 
+            versionListBox.FormattingEnabled = true;
+            versionListBox.Location = new Point(16, 26);
+            versionListBox.Name = "versionListBox";
+            versionListBox.Size = new Size(203, 244);
+            versionListBox.TabIndex = 0;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -433,6 +455,7 @@
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             MainPanel.ResumeLayout(false);
+            versionsGroupBox.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox).EndInit();
@@ -485,6 +508,8 @@
         private Button button1;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+        private GroupBox versionsGroupBox;
+        private ListBox versionListBox;
     }
 }
 

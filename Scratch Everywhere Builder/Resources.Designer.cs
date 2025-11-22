@@ -22,7 +22,7 @@ namespace Scratch_Everywhere_Builder {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Scratch_Everywhere_Builder {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Scratch_Everywhere_Builder.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Scratch_Everywhere_Builder {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Document_Create_16x16 {
+        public static System.Drawing.Bitmap Document_Create_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Document-Create-16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Folder_Open_16x16 {
+        public static System.Drawing.Bitmap Folder_Open_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Folder-Open-16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Icon {
+        public static byte[] Icon {
             get {
                 object obj = ResourceManager.GetObject("Icon", resourceCulture);
                 return ((byte[])(obj));
@@ -93,7 +93,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IconImage {
+        public static System.Drawing.Bitmap IconImage {
             get {
                 object obj = ResourceManager.GetObject("IconImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Options_16x16 {
+        public static System.Drawing.Bitmap Options_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Options-16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Package_16x16 {
+        public static System.Drawing.Bitmap Package_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Package-16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save_16x16 {
+        public static System.Drawing.Bitmap Save_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Save-16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SE__Builder_banner {
+        public static System.Drawing.Bitmap SE__Builder_banner {
             get {
                 object obj = ResourceManager.GetObject("SE! Builder banner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace Scratch_Everywhere_Builder {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SE__Builder_icon {
+        public static System.Drawing.Bitmap SE__Builder_icon {
             get {
                 object obj = ResourceManager.GetObject("SE! Builder icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

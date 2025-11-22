@@ -17,7 +17,7 @@
         static internal readonly DirectoryInfo VersionsDirectory =
             Directory.CreateDirectory(
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                             "Scratch Everywhere Builder", "versions"));
+                             "SE! Builder", "versions"));
         
         static internal string[] GetAvailableVersions(bool returnnames = false)
         {

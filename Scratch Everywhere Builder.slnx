@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="included-version/Included Version.csproj" Id="1cbeb95d-82e3-433b-a5d1-39be190804ce" />
   <Project Path="Scratch Everywhere Builder/Scratch Everywhere Builder.csproj" />
   <Project Path="Setup/Setup.vdproj" Type="Installer">
     <Build />
