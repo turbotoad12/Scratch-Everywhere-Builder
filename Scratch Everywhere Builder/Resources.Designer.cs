@@ -61,6 +61,16 @@ namespace Scratch_Everywhere_Builder {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Arrows_Down {
+            get {
+                object obj = ResourceManager.GetObject("Arrows-Down", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap Document_Create_16x16 {

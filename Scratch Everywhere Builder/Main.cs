@@ -23,6 +23,9 @@ namespace Scratch_Everywhere_Builder
                 sebxproject = SebxProjectIO.Load(SebxPath);
                 FileLoaded = true;
                 CheckFileLoaded(null, null);
+                sebxpath = SebxPath;
+                UpdatePreviewImage();
+                UpdateversionListBox();
             }
         }
 
@@ -48,6 +51,7 @@ namespace Scratch_Everywhere_Builder
                 FileLoaded = true;
                 CheckFileLoaded(sender, e);
                 UpdatePreviewImage();
+                UpdateversionListBox();
             }
         }
 
@@ -85,15 +89,48 @@ namespace Scratch_Everywhere_Builder
         }
         private void UpdatePreviewImage()
         {
-            // check if icon and banner files exist
-            if (!File.Exists(sebxproject.BannerFile.FullName))
+            // If no project loaded or project object is null, show defaults
+            if (!FileLoaded || sebxproject == null)
+            {
+                bannerPictureBox.Image = Resources.SE__Builder_banner;
+                iconPictureBox.Image = Resources.SE__Builder_icon;
+                return;
+            }
+
+            // Banner image: use project banner if available and exists, otherwise default
+            try
+            {
+                if (sebxproject.BannerFile == null || string.IsNullOrWhiteSpace(sebxproject.BannerFile.FullName) || !File.Exists(sebxproject.BannerFile.FullName))
+                {
+                    bannerPictureBox.Image = Resources.SE__Builder_banner;
+                }
+                else
+                {
+                    using var img = Image.FromFile(sebxproject.BannerFile.FullName);
+                    bannerPictureBox.Image = new Bitmap(img);
+                }
+            }
+            catch
             {
                 bannerPictureBox.Image = Resources.SE__Builder_banner;
             }
-            else if (!File.Exists(sebxproject.IconFile.FullName))
+
+            // Icon image: use project icon if available and exists, otherwise default
+            try
             {
-                // access image from resources
-                bannerPictureBox.Image = Resources.SE__Builder_icon;
+                if (sebxproject.IconFile == null || string.IsNullOrWhiteSpace(sebxproject.IconFile.FullName) || !File.Exists(sebxproject.IconFile.FullName))
+                {
+                    iconPictureBox.Image = Resources.SE__Builder_icon;
+                }
+                else
+                {
+                    using var img = Image.FromFile(sebxproject.IconFile.FullName);
+                    iconPictureBox.Image = new Bitmap(img);
+                }
+            }
+            catch
+            {
+                iconPictureBox.Image = Resources.SE__Builder_icon;
             }
         }
 
@@ -108,10 +145,18 @@ namespace Scratch_Everywhere_Builder
             statusStrip.Visible = statusBarToolStripMenuItem.Checked;
         }
 
+        public void RefreshUI()
+        {
+            UpdatePreviewImage();
+            UpdateversionListBox();
+            maskedTextBox1.Text = sebxproject.ProjectName;
+            richTextBox1.Text = sebxproject.ProjectDescription;
+        }
         private void Main_Load(object sender, EventArgs e)
         {
             CheckFileLoaded(sender, e);
             UpdatePreviewImage();
+            UpdateversionListBox();
         }
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -124,9 +169,54 @@ namespace Scratch_Everywhere_Builder
             Saved = false;
         }
         // Build function
-        private void buildToolStripButton1_Click(object sender, EventArgs e)
+        private async void buildToolStripButton1_Click(object sender, EventArgs e)
         {
+            // validate state
+            if (!Saved)
+            {
+                var result = MessageBox.Show(
+                    "You have unsaved changes. Save before building?",
+                    "Save File?",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question
+                );
+                if (result == DialogResult.Cancel)
+                {
+                    return; // don't build
+                }
+                else if (result == DialogResult.Yes)
+                {
+                    saveToolStripButton_Click(sender, e);
+                }
+                // No = build without saving
+            }
+            if (string.IsNullOrWhiteSpace(sebxpath) || sebxproject == null)
+            {
+                MessageBox.Show("No project loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            FileInfo sebxfile = new FileInfo(sebxpath);
+
+            Builder builder = new Builder(sebxproject, sebxfile.Directory!);
+            try
+            {
+                await builder.Build(progressbar);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Build failed: {ex.Message}", "Build Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            progressbar.Visible = false;
+            progressbar.Value = 0;
+        }
+        public void ShowProgressBar()
+        {
+            progressbar.Visible = true;
+        }
+        public void SetStatusText(string text)
+        {
+            toolStripStatusLabel.Text = $"Status: {text}";
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -178,13 +268,37 @@ namespace Scratch_Everywhere_Builder
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
-            SebxProjectIO.Save(sebxproject, sebxpath);
-            Saved = true;
+            if (!Saved)
+            {
+                SebxProjectIO.Save(sebxproject, sebxpath);
+                Saved = true;
+            }
+            else if (string.IsNullOrWhiteSpace(sebxpath))
+            {
+                SaveAsToolStripMenuItem_Click(sender, e);
+            }
+        }
+        private void UpdateversionListBox()
+        {
+            versionListBox.Items.Clear();
+            string[] versions = Version.GetAvailableVersions(true);
+            versionListBox.Items.AddRange(versions);
         }
 
-        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        private void versionListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (versionListBox.SelectedItem != null)
+            {
+                sebxproject.TargetVersion = Version.Parse(versionListBox.SelectedItem.ToString());
+            }
+        }
 
+        private void downloadnewversionsbutton_Click(object sender, EventArgs e)
+        {
+            // open new form to download new versions
+            Form downloadform = new DownloadVersion.DownloadVersion();
+            downloadform.ShowDialog();
+            UpdateversionListBox();
         }
     }
 }

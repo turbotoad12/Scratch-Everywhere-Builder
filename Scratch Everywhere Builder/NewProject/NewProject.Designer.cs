@@ -135,10 +135,13 @@
             Controls.Add(label1);
             Controls.Add(browseButton);
             Controls.Add(ProjectPathBox);
+            Cursor = Cursors.Default;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             Name = "NewProject";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Create A Project";
             Load += NewProject_Load;
             ResumeLayout(false);

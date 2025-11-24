@@ -55,9 +55,11 @@
             buildToolStripButton1 = new ToolStripButton();
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
+            progressbar = new ToolStripProgressBar();
             toolTip = new ToolTip(components);
             MainPanel = new Panel();
             versionsGroupBox = new GroupBox();
+            versionListBox = new ListBox();
             groupBox2 = new GroupBox();
             ChooseBannerButton = new Button();
             label3 = new Label();
@@ -70,7 +72,7 @@
             maskedTextBox1 = new MaskedTextBox();
             label2 = new Label();
             label1 = new Label();
-            versionListBox = new ListBox();
+            downloadnewversionsbutton = new Button();
             menuStrip.SuspendLayout();
             toolStrip.SuspendLayout();
             statusStrip.SuspendLayout();
@@ -164,7 +166,7 @@
             // 
             optionsToolStripMenuItem.Image = Resources.Options_16x16;
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(144, 26);
+            optionsToolStripMenuItem.Size = new Size(224, 26);
             optionsToolStripMenuItem.Text = "&Options";
             // 
             // viewMenu
@@ -269,7 +271,7 @@
             // statusStrip
             // 
             statusStrip.ImageScalingSize = new Size(20, 20);
-            statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
+            statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel, progressbar });
             statusStrip.Location = new Point(0, 671);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 19, 0);
@@ -280,8 +282,14 @@
             // toolStripStatusLabel
             // 
             toolStripStatusLabel.Name = "toolStripStatusLabel";
-            toolStripStatusLabel.Size = new Size(49, 20);
-            toolStripStatusLabel.Text = "Status";
+            toolStripStatusLabel.Size = new Size(97, 20);
+            toolStripStatusLabel.Text = "Status: Ready";
+            // 
+            // progressbar
+            // 
+            progressbar.Name = "progressbar";
+            progressbar.Size = new Size(100, 18);
+            progressbar.Visible = false;
             // 
             // MainPanel
             // 
@@ -298,6 +306,7 @@
             // 
             // versionsGroupBox
             // 
+            versionsGroupBox.Controls.Add(downloadnewversionsbutton);
             versionsGroupBox.Controls.Add(versionListBox);
             versionsGroupBox.Location = new Point(385, 313);
             versionsGroupBox.Name = "versionsGroupBox";
@@ -305,6 +314,15 @@
             versionsGroupBox.TabIndex = 6;
             versionsGroupBox.TabStop = false;
             versionsGroupBox.Text = "Versions";
+            // 
+            // versionListBox
+            // 
+            versionListBox.FormattingEnabled = true;
+            versionListBox.Location = new Point(16, 26);
+            versionListBox.Name = "versionListBox";
+            versionListBox.Size = new Size(203, 244);
+            versionListBox.TabIndex = 0;
+            versionListBox.SelectedIndexChanged += versionListBox_SelectedIndexChanged;
             // 
             // groupBox2
             // 
@@ -424,13 +442,15 @@
             label1.TabIndex = 0;
             label1.Text = "Project Name";
             // 
-            // versionListBox
+            // downloadnewversionsbutton
             // 
-            versionListBox.FormattingEnabled = true;
-            versionListBox.Location = new Point(16, 26);
-            versionListBox.Name = "versionListBox";
-            versionListBox.Size = new Size(203, 244);
-            versionListBox.TabIndex = 0;
+            downloadnewversionsbutton.Location = new Point(226, 26);
+            downloadnewversionsbutton.Name = "downloadnewversionsbutton";
+            downloadnewversionsbutton.Size = new Size(214, 29);
+            downloadnewversionsbutton.TabIndex = 6;
+            downloadnewversionsbutton.Text = "Download new versions\r\n";
+            downloadnewversionsbutton.UseVisualStyleBackColor = true;
+            downloadnewversionsbutton.Click += downloadnewversionsbutton_Click;
             // 
             // Main
             // 
@@ -510,6 +530,8 @@
         private GroupBox groupBox2;
         private GroupBox versionsGroupBox;
         private ListBox versionListBox;
+        private ToolStripProgressBar progressbar;
+        private Button downloadnewversionsbutton;
     }
 }
 
